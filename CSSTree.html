@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>CSS Tree</title>
+	<style type="text/css">
+		ul.tree, ul.tree ul {
+			list-style-type: none;
+			background:  url(vline.png) repeat-y;
+			margin:0;
+			padding:0;
+		}
+
+		ul.tree ul {
+			margin-left: 1em;
+		}
+
+		ul.tree li {
+			margin:0;
+			padding: 0 1.2em;
+			line-height: 20px;
+			background: url(node.png) no-repeat;
+			color: #369;
+			font-weight: bold;
+		}
+
+		/* The #fff color background is to hide the previous background image*/
+		ul.tree li.last {
+			background: #fff url(lastnode.png) no-repeat;
+		}
+	</style>
+	 <script type="text/javascript">
+	 	window.onload = function () {
+	 		var tree = document.getElementById("tree");
+	 		var lists = [ tree ];
+	 		for (var i = 0; i < tree.getElementsByTagName("ul").length; i++)
+	 			lists[lists.length] = tree.getElementsByTagName("ul")[i];
+	 		for (var i = 0; i < lists.length; i++) {
+	 			var item = lists[i].lastChild;
+	 			while (!item.tagName || item.tagName.toLowerCase() != "li")
+	 				item = item.previousSibling;
+	 			item.className += " last";
+	 		} };
+	 </script>
+</head>
+<body>
+	<a href="http://odyniec.net/articles/turning-lists-into-trees/">Tutorial</a>
+
+	<ul class="tree" id="tree">
+		<li>Animals</li>
+		<ul>
+			<li>Birds</li>
+			<ul>
+				<li>Parrot</li>
+				<li>Sparrow</li>
+			</ul>
+			<li>Mammals</li>
+			<ul>
+				<li>Humans</li>
+				<li>Cows</li>
+			</ul>
+			<li>Fish</li>
+			<ul>
+				<li>Salmon</li>
+			</ul>
+			<li>Reptiles</li>
+			<ul>
+				<li>Snake</li>
+				<li>Lizard</li>
+			</ul>
+		</ul>
+		<li>Plants</li>
+		<ul>
+			<li>Trees</li>
+			<ul>
+				<li>Mango</li>
+				<li>Banyan</li>
+				<li>Redwood</li>
+			</ul>
+			<li>Shrubs</li>
+			<ul>
+				<li>Cactus</li>
+				<li>Congress</li>
+			</ul>
+		</ul>
+	</ul>
+</body>
+</html>
