@@ -4,13 +4,13 @@
 	<style type="text/css">
 		ul.tree, ul.tree ul {
 			list-style-type: none;
-			background:  url(vline.png) repeat-y;
 			margin:0;
 			padding:0;
 		}
 
 		ul.tree ul {
-			margin-left: 1em;
+			padding-left: 1em;
+			background:  url(vline.png) repeat-y;
 		}
 
 		ul.tree li {
@@ -26,6 +26,10 @@
 		ul.tree li.last {
 			background: #fff url(lastnode.png) no-repeat;
 		}
+
+		ul.tree ul:last-child {
+			background: none;
+		}
 	</style>
 	 <script type="text/javascript">
 	 	window.onload = function () {
@@ -38,6 +42,7 @@
 	 			while (!item.tagName || item.tagName.toLowerCase() != "li")
 	 				item = item.previousSibling;
 	 			item.className += " last";
+	 			console.log(item);
 	 		} };
 	 </script>
 </head>
